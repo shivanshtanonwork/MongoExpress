@@ -8,6 +8,7 @@ const Chat = require("./models/chat")
 app.set("views", path.join(__dirname, "views"));
 // Set EJS as the templating engine
 app.set("view engine", "ejs")
+app.use(express.static(path.join(__dirname, "public")))
 
 
 main()
@@ -19,6 +20,19 @@ main()
 async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 }
+
+//Index Route
+app.get("/chats", async (req, res) => {
+    let chats = await Chat.find();
+    console.log(chats);
+    res.render("index.ejs", { chats })
+})
+
+//NEW Route
+app.get("/chats/new", (req, res) => {
+    res.render("new.ejs")
+})
+
 
 app.get("/", (req, res) => {
     res.send("root is working")
