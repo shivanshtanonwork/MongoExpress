@@ -22,3 +22,9 @@ body {
   color: white;
   border: 1px solid dodgerblue;
 }
+
+.editBtn {
+  border: 1px solid aliceblue;
+  background-color: aliceblue;
+  border-radius: 16px;
+}
