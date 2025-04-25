@@ -8,6 +8,7 @@ const Chat = require("./models/chat")
 app.set("views", path.join(__dirname, "views"));
 // Set EJS as the templating engine
 app.set("view engine", "ejs")
+//serve static files like CSS and JS files
 app.use(express.static(path.join(__dirname, "public")))
 //to parse data of req.body
 app.use(express.urlencoded({ extended: true }))
